@@ -1,4 +1,3 @@
-const e = require("express");
 const express = require("express");
 const artistsRouter = express.Router();
 const sqlite3 = require("sqlite3");
@@ -6,7 +5,7 @@ const db = new sqlite3.Database(
   process.env.TEST_DATABASE || "./database.sqlite"
 );
 
-//ROUTER PARAMS && VALIDATE ARTIST
+//ROUTER PARAMS
 artistsRouter.param("artistId", (req, res, next, id) => {
   db.get(`SELECT * FROM Artist WHERE id = ${id}`, (err, artistId) => {
     if (err) {
@@ -19,6 +18,8 @@ artistsRouter.param("artistId", (req, res, next, id) => {
     }
   });
 });
+
+//VALIDATE ARTIST
 
 const validateArtist = (req, res, next) => {
   req.name = req.body.artist.name;

@@ -15,4 +15,7 @@ db.serialize(() => {
   db.run(
     "CREATE TABLE IF NOT EXISTS Series (id INTEGER PRIMARY KEY NOT NULL, name TEXT NOT NULL, description TEXT NOT NULL)"
   );
+  // db.run(
+  //   "INSERT INTO Series (id, name, description) VALUES (1,'Manu', 'test')"
+  // );
 });
