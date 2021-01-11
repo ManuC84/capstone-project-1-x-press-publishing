@@ -1,0 +1,3 @@
+
+
+POST http://localhost:4001/api/artists HTTP/1.1
