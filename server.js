@@ -6,7 +6,7 @@ const cors = require("cors");
 const errorHandler = require("errorhandler");
 const apiRouter = require("./api/api");
 
-const PORT = process.env.PORT || 4001;
+const PORT = process.env.PORT || 4000;
 
 //MIDDLEWARE
 app.use(bodyParser.json());
