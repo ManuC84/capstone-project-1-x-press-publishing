@@ -41,7 +41,6 @@ artistsRouter.get("/", (req, res, next) => {
       if (err) {
         next(err);
       } else {
-        console.log(artists);
         res.status(200).json({ artists: artists });
       }
     }
