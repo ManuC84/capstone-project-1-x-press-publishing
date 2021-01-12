@@ -4,6 +4,10 @@ const sqlite3 = require("sqlite3");
 const db = new sqlite3.Database(
   process.env.TEST_DATABASE || "./database.sqlite"
 );
+const issuesRouter = require("./issues");
+
+//ISSUES ROUTER
+seriesRouter.use("/:seriesId/issues", issuesRouter);
 
 //ROUTER PARAMS
 seriesRouter.param("seriesId", (req, res, next, seriesId) => {

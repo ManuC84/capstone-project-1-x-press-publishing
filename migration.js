@@ -15,7 +15,15 @@ db.serialize(() => {
   db.run(
     "CREATE TABLE IF NOT EXISTS Series (id INTEGER PRIMARY KEY NOT NULL, name TEXT NOT NULL, description TEXT NOT NULL)"
   );
+
+  //CREATE ISSUE TABLE
+  db.run(`DROP TABLE IF EXISTS Issue`);
+
+  db.run(
+    "CREATE TABLE IF NOT EXISTS Issue (id INTEGER PRIMARY KEY NOT NULL, name TEXT NOT NULL, issue_number INTEGER NOT NULL, publication_date TEXT NOT NULL, artist_id INTEGER NOT NULL, series_id INTEGER NOT NULL, FOREIGN KEY(artist_id) REFERENCES Artist(id), FOREIGN KEY(series_id) REFERENCES Series(id))"
+  );
+
   // db.run(
-  //   "INSERT INTO Series (id, name, description) VALUES (1,'Manu', 'test')"
+  //   "INSERT INTO Issue (id, name, issue_number, publication_date, artist_id, series_id) VALUES (1,'Manu', '1', 'test', 1, 1)"
   // );
 });
